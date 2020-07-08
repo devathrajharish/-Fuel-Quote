@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ title }}</legend>
+            <div class="form-group">
+                {{ form.gallons_requested.label(class="form-control-label") }}
+                {% if form.gallons_requested.errors %}
+                {{ form.gallons_requested(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.gallons_requested.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.gallons_requested(class="form-control form-control-lg", disabled=True) }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.delivery_address.label(class="form-control-label") }}
+                {% if form.delivery_address.errors %}
+                {{ form.delivery_address(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.delivery_address.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.delivery_address(class="form-control form-control-lg", disabled=True) }}
+                {% endif %}
+            </div>
+<!--            <div class="form-group">-->
+<!--                {{ form.date_requested.label(class="form-control-label") }}-->
+<!--                {% if form.date_requested.errors %}-->
+<!--                {{ form.date_requested(class="form-control form-control-lg is-invalid") }}-->
+<!--                <div class="invalid-feedback">-->
+<!--                    {% for error in form.date_requested.errors %}-->
+<!--                    <span>{{ error }}</span>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->
+<!--                {% else %}-->
+<!--                {{ form.date_requested(class="form-control form-control-lg") }}-->
+<!--                {% endif %}-->
+<!--            </div>-->
+            <div class="form-group">
+                {{ form.suggested_price.label(class="form-control-label") }}
+                {% if form.suggested_price.errors %}
+                {{ form.suggested_price(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.suggested_price.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.suggested_price(class="form-control form-control-lg", disabled=True) }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.total_amount_due.label(class="form-control-label") }}
+                {% if form.total_amount_due.errors %}
+                {{ form.total_amount_due(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.total_amount_due.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.total_amount_due(class="form-control form-control-lg", disabled=True) }}
+                {% endif %}
+            </div>
+        </fieldset>
+
+    </form>
+</div>
+{% endblock content %}

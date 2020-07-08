@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block content %}
+<h7 style="color:red;">You have to create a profile first</h7>
+<div class="content-section" style="border-radius: 2px; box-shadow: 0 0 2px black; margin-top: 5px;">
+<!--    &lt;!&ndash; <div class="media">-->
+<!--        <div class="media-body">-->
+<!--            &lt;!&ndash; <h2 class="account-heading">{{ current_user.username }}</h2> &ndash;&gt;-->
+<!--          &lt;!&ndash;  <p class="text-secondary">{{ current_user.email }}</p>-->
+<!--        </div>-->
+<!--    </div> &ndash;&gt;-->
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ current_user.username }}<span style="float:right;">{{ current_user.email }}</span></legend>
+            <div class="form-group">
+                {{ form.full_name.label(class="form-control-label") }}
+                {% if form.full_name.errors %}
+                {{ form.full_name(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.full_name.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.full_name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.address_one.label(class="form-control-label") }}
+                {% if form.address_one.errors %}
+                {{ form.address_one(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.address_one.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.address_one(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.address_two.label(class="form-control-label") }}
+                {% if form.address_two.errors %}
+                {{ form.address_two(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.address_two.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.address_two(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.city.label(class="form-control-label") }}
+                {% if form.city.errors %}
+                {{ form.city(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.city.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.city(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.state.label(class="form-control-label") }}
+                {% if form.state.errors %}
+                {{ form.state(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.state.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.state(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.zipcode.label(class="form-control-label") }}
+                {% if form.zipcode.errors %}
+                {{ form.zipcode(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.zipcode.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.zipcode(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
